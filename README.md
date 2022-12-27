@@ -15,7 +15,7 @@ events {
 stream {
     upstream k3snodes {
         least_conn;
-        server 172.31.24.91:6443 max_fails=3 fail_timeout=5s;
+        server <your master ip>:6443 max_fails=3 fail_timeout=5s;
     }
     server {
         listen 6443;
