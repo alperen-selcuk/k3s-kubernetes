@@ -1,34 +1,10 @@
-# k3s-kubernetes
 
-nginx config
-
-```
-load_module '/usr/lib/nginx/modules/ngx_stream_module.so';
-
-worker_processes 4;
-worker_rlimit_nofile 40000;
-
-events {
-    worker_connections 8192;
-}
-
-stream {
-    upstream k3snodes {
-        least_conn;
-        server <your master ip>:6443 max_fails=3 fail_timeout=5s;
-    }
-    server {
-        listen 6443;
-        proxy_pass k3snodes;
-    }
-}
 ```
 
 k3sup install
 
 ```
 curl -sLS https://get.k3sup.dev | sh
-sudo install k3sup /usr/local/bin/
 ```
 
 k3sup configuration
