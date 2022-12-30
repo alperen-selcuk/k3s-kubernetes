@@ -1,5 +1,4 @@
 
-```
 
 k3sup install
 
